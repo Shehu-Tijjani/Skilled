@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #ff4444, #f02ba5);
+    height: 100svh;
+    min-height: fit-content;
+    padding: 20px 0;
+    color: #13183e;
+    font-family: Arial;
+    font-family: "Montserrat", Verdana, sans-serif;
+}
+
+label,
+.gender-box p,
+.country p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.gender-box label {
+    display: inline-block;
+}
+
+input,
+.gender-box,
+.country {
+    margin-bottom: 15px;
+}
+
+.terms {
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 40px;
+}
+
+input,
+select {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+form {
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+    font-weight: 500;
+    border-radius: 15px;
+
+    max-width: 600px;
+    min-width: 300px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    border: 1px solid #ff444447;
+    outline-color: #ff444447;
+    padding: 7px 10px;
+    border-radius: 3px;
+    color: #13183e;
+}
+
+.gender-box p {
+    margin-bottom: 10px;
+}
+
+.gender-box label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.country {
+    width: 100%;
+}
+
+.country p {
+    display: inline-block;
+}
+
+.country select {
+    width: 150px;
+    padding: 1px 5px;
+    border: 2px solid #ff444447;
+    background-color: transparent;
+    /* font-size: 16px;
+    font-weight: 600; */
+}
+
+.terms {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.accpt-terms label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+button {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #ff4444, #f02ba5);
+    color: white;
+}
+
+.sign-in {
+    margin-top: 20px;
+    text-align: center;
+}
+.sign-in a {
+    text-decoration: none;
+}

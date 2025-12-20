@@ -1,0 +1,272 @@
+:root {
+    --red-gradient: linear-gradient(to bottom, #ff4444, #f02ba5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*prevents expansion on elements that have height and width when padding, border or others are added is added*/
+}
+
+body {
+    height: 1000px;
+    /* font-family: Verdana; */
+    /* font-family: Verdana; */
+    /* font-family: Verdana; */
+    /* font-family: Verdana; */
+    font-family: "Montserrat", Verdana, sans-serif;
+    color: #13183e;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 30px 15px;
+    margin: auto;
+}
+
+header {
+    height: 100svh;
+    min-height: fit-content;
+    max-height: 1000px;
+
+    display: flex;
+    flex-flow: column;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn {
+    background-color: #13183e;
+    color: white;
+    padding: 19px 30px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: none;
+}
+
+p {
+    opacity: 0.7;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hero {
+    flex: 1;
+}
+
+@media (max-width: 500px) {
+    .hero {
+        text-align: center;
+        align-content: center;
+    }
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    height: 100%;
+}
+
+.hero .textbox {
+    flex: 1 1 350px;
+}
+
+.hero .textbox h1 {
+    font-weight: 700;
+    font-size: 45px;
+
+    /* font-size: min(40px, 11vw); */ /*  (uses the smaller value) i.e increase and reduce by vw, but  dont increase past fixed 40px */
+    font-size: max(
+        40px,
+        3vw
+    ); /* (uses the bigger value) i.e increase and reduce by vw, but dont reduce past the fixed 40px */
+
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.hero .textbox p {
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.hero .textbox .btn {
+    /* background: linear-gradient(to bottom, #ff4444, #f02ba5); */
+
+    background: var(--red-gradient);
+}
+
+.hero figure {
+    flex: 1 1 auto;
+}
+
+.hero figure .illustr {
+    margin: auto;
+    position: relative;
+    width: fit-content;
+
+    padding: 30px;
+}
+
+.hero figure .illustr .course-hr,
+.hero figure .illustr .members {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 20px 30px 5px rgba(18, 30, 115, 0.136);
+}
+
+.hero figure .illustr .course-hr h2,
+.hero figure .illustr .members h2 {
+    font-size: 33px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.hero figure .illustr .course-hr {
+    left: -2%;
+    bottom: 0;
+}
+
+.hero figure .illustr .members {
+    top: 5%;
+    right: 0;
+}
+
+.hero .image-wrapper {
+    max-height: 450px;
+    max-width: 450px;
+
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+    .hero .image-wrapper {
+        max-height: 300px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero .image-wrapper {
+        max-height: 450px;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 500px) or (max-height: 500px) {
+    .hero .image-wrapper {
+        max-height: 300px;
+        max-width: 300px;
+    }
+}
+
+.hero .image-wrapper img {
+    /* background: linear-gradient(to bottom, #ff4444, #f02ba5); */
+    background: var(--red-gradient);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.courses .container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.courses .container > h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    /* background: linear-gradient(to bottom, #ff4444, #f02ba5); */
+    background: var(--red-gradient);
+    padding: 35px 30px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.courses .card {
+    background-color: white;
+    padding: 35px 30px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 2px 20px 40px 6px rgba(84, 99, 211, 0.1);
+}
+
+.courses .container > h2,
+.courses .card {
+    flex: 1 1 300px;
+}
+
+.courses .card .icon {
+    /* background: linear-gradient(to bottom, #ff4444, #f02ba5); */
+    background: var(--red-gradient);
+    border-radius: 50%;
+    fill: white;
+    height: 26px;
+    width: 26px;
+    padding: 18px;
+    box-sizing: content-box;
+
+    margin-top: -100px;
+    position: relative;
+    bottom: 15px;
+}
+
+.courses .card h3 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.courses .card p {
+    margin-bottom: 25px;
+}
+
+.courses .card a {
+    color: #ff4444;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer {
+    background: linear-gradient(to bottom, #13183e, #151a45);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+footer .btn {
+    background: linear-gradient(to bottom, #2f2fdf, #f02ba5);
+}
