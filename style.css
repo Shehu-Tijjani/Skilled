@@ -1,3 +1,8 @@
+/* Mobile  < 640px
+Tablet  640px – 1024px
+Laptop  1024px – 1280px
+Desktop  1280px+ */
+
 :root {
     --red-gradient: linear-gradient(to bottom, #ff4444, #f02ba5);
 }
@@ -5,15 +10,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*prevents expansion on elements that have height and width when padding, border or others are added is added*/
+    box-sizing: border-box;
 }
 
 body {
     height: 1000px;
-    /* font-family: Verdana; */
-    /* font-family: Verdana; */
-    /* font-family: Verdana; */
-    /* font-family: Verdana; */
     font-family: "Montserrat", Verdana, sans-serif;
     color: #13183e;
     font-weight: 500;
@@ -22,17 +23,24 @@ body {
 
 .container {
     max-width: 1200px;
-    padding: 30px 15px;
+    padding: 40px 15px 30px;
     margin: auto;
 }
 
 header {
     height: 100svh;
+    max-height: 1100px;
     min-height: fit-content;
-    max-height: 1000px;
 
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
 }
 
 nav .container {
@@ -70,23 +78,29 @@ p {
 }
 
 .hero {
+    /* flex-basis: 1;
+    flex-shrink: 1;
+    flex-grow: 1; */
     flex: 1;
 }
 
-@media (max-width: 500px) {
+@media ((max-width: 760px) and (min-height: 500px)) or ((max-height: 500px) and (max-width: 760px))  {
     .hero {
         text-align: center;
         align-content: center;
+        margin: auto;
     }
 }
 
 .hero .container {
+    height: 100%;
     display: flex;
+    /* flex-direction: row-reverse; */
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-
-    height: 100%;
+    align-content: center;
+    gap: 30px;
+    padding-top: 80px;
 }
 
 .hero .textbox {
@@ -95,21 +109,35 @@ p {
 
 .hero .textbox h1 {
     font-weight: 700;
-    font-size: 45px;
-
-    /* font-size: min(40px, 11vw); */ /*  (uses the smaller value) i.e increase and reduce by vw, but  dont increase past fixed 40px */
-    font-size: max(
-        40px,
-        3vw
-    ); /* (uses the bigger value) i.e increase and reduce by vw, but dont reduce past the fixed 40px */
-
-    line-height: 1.3;
+    /* font-size: min(55px, 9.5vw); */
+    /*  (uses the smaller value) i.e increase and decrease by vw, but  dont increase past fixed 40px */
+    
+    /* font-size: max(
+        42px,
+        3.5vw
+    ); */ 
+    /* (uses the bigger value) i.e increase and decrease by vw, but dont decrease past the fixed 40px */
+    
+    font-size: clamp(40px, 6vw, 70px);
+    /* font-size: clamp(min, growth, max); */
+    
     margin-bottom: 18px;
 }
 
 .hero .textbox p {
     margin-bottom: 20px;
     max-width: 500px;
+}
+
+@media ((max-width: 760px) and (min-height: 500px)) or ((max-height: 500px) and (max-width: 760px))  {
+    .hero .textbox p {
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    
+    .hero .textbox h1 {
+      font-size: clamp(20px, 11vw, 60px);
+    }
 }
 
 .hero .textbox .btn {
@@ -119,15 +147,13 @@ p {
 }
 
 .hero figure {
-    flex: 1 1 auto;
+    flex: 1 1 350px;
 }
 
 .hero figure .illustr {
     margin: auto;
     position: relative;
     width: fit-content;
-
-    padding: 30px;
 }
 
 .hero figure .illustr .course-hr,
@@ -147,41 +173,42 @@ p {
 }
 
 .hero figure .illustr .course-hr {
-    left: -2%;
-    bottom: 0;
+    left: -20px;
+    bottom: -15px;
 }
 
 .hero figure .illustr .members {
-    top: 5%;
-    right: 0;
+    right: -1vw;
+    top: -10px;
+}
+
+@media (max-width: 760px) {
+    .hero figure .illustr .members {
+      right: -20px;
+     }
 }
 
 .hero .image-wrapper {
-    max-height: 450px;
-    max-width: 450px;
+    height: auto;
+    max-width: 400px;
 
     border-radius: 50%;
     overflow: hidden;
-}
-
-@media (max-width: 1000px) {
-    .hero .image-wrapper {
-        max-height: 300px;
-        max-width: 300px;
-    }
+    
+    aspect-ratio: 1/1;
 }
 
 @media (max-width: 760px) {
     .hero .image-wrapper {
-        max-height: 450px;
-        max-width: 450px;
+        height: auto;
+        width: 75vw;
     }
 }
 
-@media (max-width: 500px) or (max-height: 500px) {
+
+@media (min-width: 760px) and (max-height: 500px) {
     .hero .image-wrapper {
-        max-height: 300px;
-        max-width: 300px;
+        width: 90vh;
     }
 }
 
@@ -194,11 +221,16 @@ p {
     object-position: top;
 }
 
+.courses {
+  position: relative;
+}
+
 .courses .container {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
 }
 
 .courses .container > h2 {
@@ -212,12 +244,26 @@ p {
     margin-bottom: 50px;
 }
 
+@media (max-width: 700px) {
+    .courses .container > h2 {
+      position: sticky;
+      top: 100px;
+    }
+}
+
 .courses .card {
     background-color: white;
     padding: 35px 30px;
     border-radius: 10px;
     margin-bottom: 50px;
     box-shadow: 2px 20px 40px 6px rgba(84, 99, 211, 0.1);
+}
+
+@media (max-width: 700px) {
+  .courses .card {
+    position: sticky;
+    top: 300px;
+  }
 }
 
 .courses .container > h2,
@@ -228,20 +274,35 @@ p {
 .courses .card .icon {
     /* background: linear-gradient(to bottom, #ff4444, #f02ba5); */
     background: var(--red-gradient);
-    border-radius: 50%;
     fill: white;
     height: 26px;
     width: 26px;
     padding: 18px;
+    border-radius: 50%;
     box-sizing: content-box;
-
-    margin-top: -100px;
-    position: relative;
-    bottom: 15px;
+    margin-top: -65px;
+    margin-bottom: 20px;
+    display: block;
 }
+
+/* #test {
+    background: var(--red-gradient);
+    height: 56px;
+    width: 56px;
+    margin-top: -65px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+#test .icon {
+    height: 100%;
+    width: 60%;
+    fill: white;
+} */
 
 .courses .card h3 {
     margin-bottom: 20px;
+    
     font-weight: 700;
     font-size: 23px;
 }
